@@ -6,35 +6,25 @@ const app = express();
 const PORT = 3001;
 
 
+app.use(express.static(path.join(__dirname, 'public')));
+
+//This helps the app get the /notes section
 app.get('/notes', (req, res) => {
-//route logic
     res.sendFile(path.join(__dirname, 'public/notes.html'))
 });
 
-// Serve static files from the public directory
-app.use(express.static(path.join(__dirname, 'public')));
+//This gets the landing page 
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '/public/index.html'))
+})
 
-// Start the server
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
-});
-
-
-
-
-
-app.get('/', (req, res) => {
+//this gets the notes
+app.get('/api/notes', (req, res) => {
     res.sendFile(path.join(__dirname, '/public/index.html'))
 })
 
 
-//app.post('/notes', (req, res) => {
-   // res.sendFile(path.join(__dirname, '/public/notes.html'))
-//route logic
 
-//})
-
-//app.listen(PORT, () =>
- //   console.log(`Listening at http://localhost:${PORT} `)
-
-//);
+app.listen(PORT, () =>
+ console.log(`Listening at http://localhost:${PORT} `)
+);
