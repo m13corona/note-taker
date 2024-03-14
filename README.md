@@ -11,6 +11,7 @@ No installation is required, simply follow the link to deployed app
 
 
 ## Screenshots
+<img width="722" alt="Screenshot 2024-03-13 at 10 57 39 p m" src="https://github.com/m13corona/note-taker/assets/152875862/26c4be4e-3282-41e5-ab08-165bce9d62cc">
 
 
 
