@@ -1,30 +1,8 @@
-//const fs = require('fs');
-//const path = require('path');
-//const express = require('express');
-//const app = express();
-
-// Define the route to get the notes
-//app.get('/api/notes', (req, res) => {
- //   readFromFile('./db/db.json').then((data) => res.json(JSON.parse(data)));
-//});
-
-    // Read the db.json file
-  //  fs.readFile(path.join(__dirname, '/db/db.json'), 'utf8', (err, data) => {
-        
-    //});
-
-
-// Start the server
-//const PORT = process.env.PORT || 3001;
-//app.listen(PORT, () => {
-  //  console.log(`Listening at http://localhost:${PORT}`);
-//});
-
-const list = require('express').Router();   //tips
+const list = require('express').Router();   
 const { readFromFile, readAndAppend } = require('./db/db.json');
 const { v4: uuidv4 } = require('uuid');
 
-//GET Route for retrieving all the notes
+//Route for retrieving all the notes
 list.get('/', (req, res) => {
   readFromFile('./db/db.json').then((data) => res.json(JSON.parse(data)));
 });

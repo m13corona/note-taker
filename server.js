@@ -5,14 +5,7 @@ const path = require('path');
 const app = express();
 const PORT = 3001;
 
-//const { clog } = require('./middleware/clog');
-//const api = require('./routes/index.js');
-
-
-// Middleware for parsing JSON and urlencoded form data
 app.use(express.json());
-//app.use(express.urlencoded({ extended: true }));
-//app.use('/api', api);
 
 
 app.use(express.static(path.join(__dirname, 'public')));
@@ -33,6 +26,10 @@ app.get('/api/notes', (req, res) => {
 })
 
 
-app.listen(PORT, () =>
- console.log(`Listening at http://localhost:${PORT} `)
-);
+
+
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 8000;
+}
+app.listen(port);
